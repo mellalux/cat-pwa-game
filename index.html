@@ -311,13 +311,15 @@
       ctx.save();
       ctx.translate(target.x, target.y);
       ctx.rotate(target.angle);
-      const s = 1 + pulse * .35;
+      // Suurenda hiirt (skaala 1.5x)
+      const s = 1.5 + pulse * .35;
       ctx.scale(s, s);
 
       ctx.shadowColor = 'rgba(0,0,0,.35)';
       ctx.shadowBlur = 20;
       ctx.shadowOffsetY = 10;
 
+      // Hiire keha
       ctx.beginPath();
       ctx.moveTo(18, 0);
       ctx.bezierCurveTo(4, -26, -33, -20, -38, 0);
@@ -325,24 +327,39 @@
       ctx.fillStyle = '#cbd5e1';
       ctx.fill();
 
+      // Kõrvad
       ctx.beginPath();
       ctx.arc(-20, -16, 10, 0, Math.PI * 2);
       ctx.arc(-20, 16, 10, 0, Math.PI * 2);
       ctx.fillStyle = '#94a3b8';
       ctx.fill();
 
+      // Nina
       ctx.beginPath();
-      ctx.arc(7, -7, 3, 0, Math.PI * 2);
+      ctx.arc(15, 0, 5, 0, Math.PI * 2);
       ctx.fillStyle = '#0f172a';
       ctx.fill();
 
+      // Silmad
+      ctx.beginPath();
+      ctx.arc(-6, -8, 3, 0, Math.PI * 2);
+      ctx.arc(-6, 8, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#0f172a';
+      ctx.fill();
+
+      // Animeeritud saba
+      ctx.save();
       ctx.beginPath();
       ctx.moveTo(-38, 0);
-      ctx.bezierCurveTo(-70, -8, -70, 25, -98, 18);
+      // Saba "liikumine" - kasutame siinusfunktsiooni ajast sõltuvalt
+      const t = performance.now() * 0.004;
+      const wag = Math.sin(t) * 18; // saba "liputamine"
+      ctx.bezierCurveTo(-70, -8 + wag, -70, 25 + wag, -98, 18 + wag * 1.2);
       ctx.strokeStyle = '#fda4af';
       ctx.lineWidth = 6;
       ctx.lineCap = 'round';
       ctx.stroke();
+      ctx.restore();
 
       ctx.restore();
     }
@@ -491,7 +508,7 @@
       mode = modes[(modes.indexOf(mode) + 1) % modes.length];
       const label = mode === 'mouse' ? 'mouse' : mode === 'laser' ? 'laser' : 'feather';
       modeBtn.textContent = 'Target: ' + label;
-      target.r = mode === 'laser' ? 26 : mode === 'feather' ? 38 : 34;
+      target.r = mode === 'laser' ? 26 : mode === 'feather' ? 38 : 51; // hiir on nüüd suurem
       if (typeof playSound === 'function') playSound('mode');
     });
 
