@@ -262,10 +262,23 @@
       return { x: t.clientX, y: t.clientY };
     }
 
-    canvas.addEventListener('pointerdown', (event) => {
+
+    // Support both click and touch events for catching the target
+    function handleCatchEvent(event) {
       event.preventDefault();
-      catchTarget(event.clientX, event.clientY);
-    }, { passive: false });
+      let x, y;
+      if (event.touches && event.touches.length > 0) {
+        x = event.touches[0].clientX;
+        y = event.touches[0].clientY;
+      } else {
+        x = event.clientX;
+        y = event.clientY;
+      }
+      catchTarget(x, y);
+    }
+    canvas.addEventListener('pointerdown', handleCatchEvent, { passive: false });
+    canvas.addEventListener('touchstart', handleCatchEvent, { passive: false });
+    canvas.addEventListener('click', handleCatchEvent, { passive: false });
 
     canvas.addEventListener('pointermove', (event) => {
       if (!event.isPrimary) return;
@@ -465,7 +478,13 @@
       if (typeof playSound === 'function') playSound('start');
     }
 
-    startBtn.addEventListener('click', startGame);
+    // Support both click and touch for start button
+    function handleStartEvent(event) {
+      event.preventDefault();
+      startGame();
+    }
+    startBtn.addEventListener('click', handleStartEvent, { passive: false });
+    startBtn.addEventListener('touchstart', handleStartEvent, { passive: false });
 
     modeBtn.addEventListener('click', () => {
       const modes = ['mouse', 'laser', 'feather'];
