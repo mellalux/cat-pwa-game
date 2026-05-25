@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Cat Game" />
@@ -13,6 +13,7 @@
   <meta name="description" content="Place your iPad on the floor or table. Tap start and let your cat catch the moving target." />
   <meta name="keywords" content="cat, game, iPad, PWA, interactive" />
   <meta name="author" content="Meelis Luks a.k.a Mella" />
+  
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://home.lux.ee/tomsgame/" />
@@ -50,7 +51,20 @@
       <span class="emoji">🐾</span>
       <p>Place your iPad on the floor or table. Tap start and let your cat catch the moving target.</p>
       <button id="startBtn" type="button">Start</button>
+      <button id="pwaHelpBtn" type="button" class="pwa-help-btn">How to install the app?</button>
       <p class="author">Created by <a href="https://www.mella.ee" target="_blank" rel="noopener noreferrer">Meelis Luks a.k.a Mella</a> 2026</p>
+    </div>
+    <div id="pwaHelpModal" class="pwa-help-modal">
+      <div class="start-card pwa-help-card">
+        <button id="closePwaHelp" class="pwa-help-close">✖</button>
+        <h2 class="pwa-help-title">How to install the app?</h2>
+        <ol class="pwa-help-list">
+          <li>Open this page on your phone or tablet browser (preferably Chrome or Safari).</li>
+          <li>Find the <b>"Add to Home Screen"</b> or <b>"Install App"</b> option in the browser menu.</li>
+          <li>Confirm the installation. The app will appear on your device's home screen.</li>
+        </ol>
+        <p class="pwa-help-note">If you don't see this option, try refreshing the page or use a different browser.</p>
+      </div>
     </div>
   </div>
 

@@ -1,3 +1,10 @@
+    // PWA help modal
+    document.getElementById('pwaHelpBtn').addEventListener('click', function() {
+      document.getElementById('pwaHelpModal').style.display = 'flex';
+    });
+    document.getElementById('closePwaHelp').addEventListener('click', function() {
+      document.getElementById('pwaHelpModal').style.display = 'none';
+    });
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./js/sw.js').catch(() => {});

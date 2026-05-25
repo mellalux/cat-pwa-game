@@ -125,3 +125,70 @@
       color: var(--muted);
     }
     .hidden { display: none; }
+/* PWA modal card overrides */
+.pwa-help-card {
+  position: relative;
+      width: min(460px, calc(100vw - 36px));
+      border-radius: 28px;
+      padding: 32px;
+      text-align: center;
+}
+.pwa-help-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #222;
+}
+.pwa-help-title {
+  margin-top: 0;
+  font-size: 1.3em;
+}
+.pwa-help-list {
+  text-align: left;
+  line-height: 1.4;
+  padding-left: 18px;
+  margin: 32px;
+}
+.pwa-help-note {
+  font-size: 0.95em;
+  color: #bbb;
+}
+
+    /* PWA help button and modal */
+    .pwa-help-btn {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-size: 13px;
+      padding: 7px 16px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--panel-border);
+      box-shadow: none;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background .2s;
+    }
+    .pwa-help-btn:active, .pwa-help-btn:focus {
+      background: rgba(255,255,255,.18);
+    }
+
+    .pwa-help-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+    .pwa-help-modal[style*="display: flex"] {
+      display: flex !important;
+    }
+
