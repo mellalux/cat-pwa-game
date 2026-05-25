@@ -1,5 +1,5 @@
 // Service Worker for Cat PWA Game
-const CACHE_NAME = 'cat-pwa-game-v1.5';
+const CACHE_NAME = 'cat-pwa-game-v1.1';
 const ASSETS = [
   './',
   './index.html',

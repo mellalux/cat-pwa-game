@@ -1,3 +1,23 @@
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./js/sw.js').catch(() => {});
+      });
+    }
+
+    // PWA automaatne uuendamine: kui uus service worker on saadaval, lae leht automaatselt uuesti
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('controllerchange', function() {
+        // Kui SW vahetub, lae leht uuesti
+        window.location.reload();
+      });
+      navigator.serviceWorker.ready.then(function(reg) {
+        if (reg.waiting) {
+          // Kui juba ootab uus SW, uuenda kohe
+          window.location.reload();
+        }
+      });
+    }
+
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d', { alpha: true });
     const scoreEl = document.getElementById('score');
@@ -390,23 +410,3 @@
     resetTarget();
     drawBackground(0);
     drawTarget();
-
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
-      });
-    }
-
-    // PWA automaatne uuendamine: kui uus service worker on saadaval, lae leht automaatselt uuesti
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.addEventListener('controllerchange', function() {
-        // Kui SW vahetub, lae leht uuesti
-        window.location.reload();
-      });
-      navigator.serviceWorker.ready.then(function(reg) {
-        if (reg.waiting) {
-          // Kui juba ootab uus SW, uuenda kohe
-          window.location.reload();
-        }
-      });
-    }
