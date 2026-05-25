@@ -1,9 +1,8 @@
 # Cat 2D PWA Game
 
 A simple PWA game for cats, designed for iPad. Open `index.html` on an HTTPS server and add it to your iPad Home Screen.
-A simple PWA game for cats, designed for iPad. Open `index.html` on an HTTPS server ja lisa see iPadi Home Screenile.
 
-## Running locally
+# Running locally
 
 ```bash
 npx serve .
