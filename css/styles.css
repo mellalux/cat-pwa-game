@@ -1,0 +1,127 @@
+    :root {
+      color-scheme: dark;
+      --bg1: #06101d;
+      --bg2: #102542;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.62);
+      --panel: rgba(255,255,255,.10);
+      --panel-border: rgba(255,255,255,.16);
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+      touch-action: none;
+      background: radial-gradient(circle at 30% 20%, #163b67 0%, var(--bg2) 35%, var(--bg1) 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+    }
+    .hud {
+      position: fixed;
+      top: calc(12px + env(safe-area-inset-top));
+      left: calc(12px + env(safe-area-inset-left));
+      right: calc(12px + env(safe-area-inset-right));
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .pill, .start-card {
+      color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-radius: 999px;
+        box-shadow: 0 16px 45px rgba(0,0,0,.20);
+    }
+    .pill {
+      padding: 9px 13px;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1;
+    }
+    .controls {
+      position: fixed;
+      left: calc(12px + env(safe-area-inset-left));
+      right: calc(12px + env(safe-area-inset-right));
+      bottom: calc(12px + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 11;
+    }
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      color: white;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.20);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    button:active { transform: scale(.97); }
+    .start {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: radial-gradient(circle at 50% 45%, rgba(34, 197, 94, .08), rgba(0,0,0,.48));
+    }
+    .emoji {
+      font-size: 58px;
+      display: block;
+      background: linear-gradient(135deg, #22c55e, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .start-card {
+      width: min(460px, calc(100vw - 36px));
+      border-radius: 28px;
+      padding: 28px;
+      text-align: center;
+    }
+    .start-card h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 7vw, 48px);
+      letter-spacing: -.04em;
+    }
+    .start-card p {
+      margin: 0 auto 18px;
+      max-width: 40ch;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    .start-card button {
+      background: linear-gradient(135deg, #22c55e, #06b6d4);
+      color: #02111a;
+      border: 0;
+      font-size: 18px;
+      padding: 14px 22px;
+    }
+    .start-card .author {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hidden { display: none; }

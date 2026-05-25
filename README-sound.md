@@ -1,7 +1,7 @@
 # Sound files for Cat Game
 
 
-The following sound files must be added to the project root folder:
+The following sound files must be placed in the `snd/` folder:
 
 - burst.mp3
 - catch_feather.mp3
@@ -18,7 +18,7 @@ Recommended sources:
 
 ## How to add your own sounds
 
-1. Replace the existing sound files in the root folder with your own (keep the same filenames).
+1. Replace the existing sound files in the `snd/` folder with your own (keep the same filenames).
 2. Supported formats: `.mp3` (recommended for compatibility).
 3. Make sure the files are not too long (short effects work best for gameplay).
 
